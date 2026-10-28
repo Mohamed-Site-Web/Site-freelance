@@ -74,12 +74,27 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
-// ── FORM ──
-document.getElementById('contactForm').addEventListener('submit', e => {
+// ── FORMULAIRE ──
+const contactForm = document.getElementById('contactForm');
+const cfMessage = document.getElementById('cfMessage');
+const cfCount = document.getElementById('cfCount');
+cfMessage.addEventListener('input', () => { cfCount.textContent = cfMessage.value.length + ' / 1000'; });
+
+contactForm.addEventListener('input', e => e.target.classList.remove('invalid'));
+
+contactForm.addEventListener('submit', e => {
   e.preventDefault();
+  let firstBad = null;
+  contactForm.querySelectorAll('[required]').forEach(f => {
+    const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim()));
+    f.classList.toggle('invalid', bad);
+    if (bad && !firstBad) firstBad = f;
+  });
+  if (firstBad) { firstBad.focus(); return; }
   const msg = document.getElementById('formMsg');
   msg.classList.add('show');
-  e.target.reset();
+  contactForm.reset();
+  cfCount.textContent = '0 / 1000';
   setTimeout(() => msg.classList.remove('show'), 5000);
 });
 

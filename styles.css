@@ -2064,3 +2064,183 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/*********************************************************** PARTICULES SOUS LE CONTENU ***********************************************************/
+/* Les sections passent au-dessus du canvas : les particules restent visibles
+   sur les fonds, mais ne traversent plus les cartes, boutons et textes. */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/*************************************************************** FORMULAIRE CONTACT ***************************************************************/
+
+.contact-card {
+  background: #ffffff;
+  color: #111111;
+  border-radius: 18px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.cc-head { margin-bottom: 0.2rem; }
+
+.cc-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+.cc-sub {
+  font-size: 0.82rem;
+  color: #777777;
+  margin-top: 0.3rem;
+}
+
+.cc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 0;
+  min-width: 0;
+  position: relative;
+}
+
+.cc-field label,
+.cc-field legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111111;
+  padding: 0;
+  margin-bottom: 0.45rem;
+}
+
+.cc-field label { margin-bottom: 0; }
+
+.cc-opt { font-weight: 400; color: #999999; }
+
+.cc-field input,
+.cc-field textarea {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 10px;
+  background: #f9f9f9;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.cc-field textarea { resize: vertical; min-height: 130px; line-height: 1.55; }
+
+.cc-field input::placeholder,
+.cc-field textarea::placeholder { color: #aaaaaa; }
+
+.cc-field input:focus,
+.cc-field textarea:focus {
+  border-color: #111111;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(17,17,17,0.07);
+}
+
+.cc-field .invalid { border-color: #dc2626; background: #fef2f2; }
+
+.cc-count {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.6rem;
+  font-size: 0.7rem;
+  color: #aaaaaa;
+  pointer-events: none;
+}
+
+/* choix en pastilles */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip { cursor: pointer; position: relative; }
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip span {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 100px;
+  border: 1.5px solid #e5e5e5;
+  background: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #555555;
+  transition: all 0.2s;
+}
+
+.chip:hover span { border-color: #111111; color: #111111; }
+
+.chip input:checked + span {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.chip input:focus-visible + span { outline: 2px solid #111111; outline-offset: 2px; }
+
+.cc-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.cc-submit svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.cc-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+.cc-submit:hover svg { transform: translate(3px, -3px); }
+
+.cc-note {
+  font-size: 0.75rem;
+  color: #999999;
+  text-align: center;
+  margin-top: -0.4rem;
+}
+
+.contact-card .form-msg {
+  text-align: center;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .contact-card { padding: 1.4rem; }
+  .cc-row { grid-template-columns: 1fr; }
+}

@@ -641,7 +641,7 @@
       <div class="contact-grid">
       <div class="reveal-left">
         <p style="font-size:0.9rem;line-height:1.7;color:var(--text-light);margin-bottom:1.5rem;max-width:360px;">
-          Une idée ? Un projet ? Je réponds sous <strong style="color:var(--text)">24h</strong> et propose un appel découverte gratuit de 30 min.
+          Une idée ? Un projet ? Je réponds sous <strong style="color:#ffffff">24h</strong> et propose un appel découverte gratuit de 30 min.
         </p>
         <div class="contact-info-items">
           <div class="contact-info-item">
@@ -671,34 +671,70 @@
       </div>
 
       <div class="reveal-right">
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">Prénom</label><input type="text" class="form-input" placeholder="Jean" required></div>
-            <div class="form-group"><label class="form-label">Nom</label><input type="text" class="form-input" placeholder="Dupont" required></div>
+        <form class="contact-card" id="contactForm" novalidate>
+          <div class="cc-head">
+            <h3 class="cc-title">Parlez-moi de votre projet</h3>
+            <p class="cc-sub">Réponse sous 24h. Les champs marqués d’un * sont obligatoires.</p>
           </div>
-          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="jean@exemple.com" required></div>
-          <div class="form-group">
-            <label class="form-label">Type de projet</label>
-            <select class="form-select">
-              <option value="">Sélectionnez...</option>
-              <option>Site Vitrine</option><option>E-Commerce</option><option>Application Web</option>
-              <option>Refonte de Site</option><option>Maintenance / Support</option><option>Autre</option>
-            </select>
+
+          <div class="cc-row">
+            <div class="cc-field">
+              <label for="cfPrenom">Prénom *</label>
+              <input type="text" id="cfPrenom" name="prenom" placeholder="Jean" autocomplete="given-name" required>
+            </div>
+            <div class="cc-field">
+              <label for="cfNom">Nom *</label>
+              <input type="text" id="cfNom" name="nom" placeholder="Dupont" autocomplete="family-name" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Budget approximatif</label>
-            <select class="form-select">
-              <option value="">Sélectionnez...</option>
-              <option>Moins de 500€</option><option>500€ – 1 500€</option><option>1 500€ – 5 000€</option>
-              <option>5 000€ – 15 000€</option><option>+ de 15 000€</option><option>À discuter</option>
-            </select>
+
+          <div class="cc-row">
+            <div class="cc-field">
+              <label for="cfEmail">Email *</label>
+              <input type="email" id="cfEmail" name="email" placeholder="jean@exemple.com" autocomplete="email" required>
+            </div>
+            <div class="cc-field">
+              <label for="cfTel">Téléphone <span class="cc-opt">(facultatif)</span></label>
+              <input type="tel" id="cfTel" name="telephone" placeholder="06 12 34 56 78" autocomplete="tel">
+            </div>
           </div>
-          <div class="form-group"><label class="form-label">Votre message</label><textarea class="form-textarea" placeholder="Décrivez votre projet en quelques lignes..." required></textarea></div>
-          <button type="submit" class="form-submit">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+          <fieldset class="cc-field">
+            <legend>Type de projet</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="type" value="Site vitrine"><span>Site vitrine</span></label>
+              <label class="chip"><input type="radio" name="type" value="E-commerce"><span>E-commerce</span></label>
+              <label class="chip"><input type="radio" name="type" value="Application web"><span>Application web</span></label>
+              <label class="chip"><input type="radio" name="type" value="Refonte de site"><span>Refonte de site</span></label>
+              <label class="chip"><input type="radio" name="type" value="Identité visuelle"><span>Identité visuelle</span></label>
+              <label class="chip"><input type="radio" name="type" value="Motion design"><span>Motion design</span></label>
+              <label class="chip"><input type="radio" name="type" value="Autre"><span>Autre</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="cc-field">
+            <legend>Budget approximatif</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="budget" value="Moins de 500€"><span>Moins de 500€</span></label>
+              <label class="chip"><input type="radio" name="budget" value="500€ – 1 500€"><span>500€ – 1 500€</span></label>
+              <label class="chip"><input type="radio" name="budget" value="1 500€ – 5 000€"><span>1 500€ – 5 000€</span></label>
+              <label class="chip"><input type="radio" name="budget" value="+ de 5 000€"><span>+ de 5 000€</span></label>
+              <label class="chip"><input type="radio" name="budget" value="À discuter"><span>À discuter</span></label>
+            </div>
+          </fieldset>
+
+          <div class="cc-field">
+            <label for="cfMessage">Votre message *</label>
+            <textarea id="cfMessage" name="message" rows="5" maxlength="1000" placeholder="Décrivez votre projet en quelques lignes : votre activité, ce que vous voulez, vos délais..." required></textarea>
+            <span class="cc-count" id="cfCount">0 / 1000</span>
+          </div>
+
+          <button type="submit" class="cc-submit">
             Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
-          <div class="form-msg" id="formMsg">Message envoyé ! Je vous réponds sous 24h.</div>
+          <p class="cc-note">Vos informations servent uniquement à répondre à votre demande.</p>
+          <div class="form-msg" id="formMsg" role="status">Message envoyé ! Je vous réponds sous 24h.</div>
         </form>
       </div>
     </div>
