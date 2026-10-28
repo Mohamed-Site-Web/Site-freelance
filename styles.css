@@ -2252,22 +2252,39 @@ section {
 /* En mode Créa, le fond noir des réalisations devient un dégradé de couleurs
    qui bouge en continu. Les bords restent noirs pour se fondre dans les vagues.
    Les particules continuent de passer par-dessus. */
-.portfolio-band.is-crea {
-  background:
-    linear-gradient(#111111 0, transparent 220px, transparent calc(100% - 220px), #111111 100%),
-    linear-gradient(120deg, #4c1d95, #be185d, #c2410c, #0e7490, #1e3a8a, #6d28d9, #4c1d95) !important;
-  background-size: 100% 100%, 400% 400% !important;
+.portfolio-band.is-crea,
+body.crea-mode .pf-wave {
+  background: linear-gradient(120deg, #4c1d95, #be185d, #c2410c, #0e7490, #1e3a8a, #6d28d9, #4c1d95) !important;
+  background-size: 400% 400% !important;
+  background-attachment: fixed !important;   /* même dégradé continu sur les vagues et la section */
   animation: creaFlow 22s ease-in-out infinite;
 }
 
+/* vagues : en Créa on dessine la partie blanche, le dégradé apparaît dessous */
+.pf-wave .wave-light { display: none; }
+body.crea-mode .pf-wave .wave-dark { display: none; }
+body.crea-mode .pf-wave .wave-light { display: block; }
+
+/* boutons en Créa : transparents comme le fond, contour blanc */
+body.crea-mode #portfolio .universe-btn.active,
+body.crea-mode #portfolio .universe-btn:hover,
+body.crea-mode #portfolio .filter-btn.active,
+body.crea-mode #portfolio .filter-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
 @keyframes creaFlow {
-  0%   { background-position: 0 0, 0% 50%; }
-  50%  { background-position: 0 0, 100% 50%; }
-  100% { background-position: 0 0, 0% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-band.is-crea { animation: none; }
+  .portfolio-band.is-crea, body.crea-mode .pf-wave { animation: none; }
 }
 
 .portfolio-band.is-crea .section-desc { color: rgba(255, 255, 255, 0.85); }

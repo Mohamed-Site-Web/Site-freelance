@@ -39,6 +39,7 @@ document.querySelectorAll('.universe-btn').forEach(btn => {
     });
     document.querySelectorAll('[data-filters]').forEach(f => { f.hidden = f.dataset.filters !== u; });
     document.getElementById('portfolioBand').classList.toggle('is-crea', u === 'crea');
+    document.body.classList.toggle('crea-mode', u === 'crea');
     document.querySelectorAll('[data-grid]').forEach(g => {
       g.hidden = g.dataset.grid !== u;
       if (!g.hidden) g.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
