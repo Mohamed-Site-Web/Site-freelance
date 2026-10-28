@@ -2289,20 +2289,33 @@ body.crea-mode #portfolio .filter-btn:hover {
 
 .portfolio-band.is-crea .section-desc { color: rgba(255, 255, 255, 0.85); }
 
-/* Réalisations : espacements resserrés entre le titre, le texte et les onglets */
+/******************************************************* ESPACEMENTS DES GRANDS TITRES *******************************************************/
+/* Titres de section (Services, Réalisations, Tarifs, FAQ, Contact) : moins de vide autour */
+.section-title-2,
+.section-title-3 {
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+}
+
+.section-label {
+  margin-bottom: 1rem;
+}
+
+/* Réalisations : la phrase passe sous les filtres */
 #portfolio {
   padding-top: 1.5rem;
 }
 
-#portfolio .section-label {
-  margin-bottom: 1rem;
-}
-
 #portfolio .section-title-3 {
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-#portfolio .section-desc {
-  margin-bottom: 2rem;
+.portfolio-intro {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin: -0.8rem 0 2rem;
 }
+
+.portfolio-band.is-crea .portfolio-intro { color: rgba(255, 255, 255, 0.85); }
