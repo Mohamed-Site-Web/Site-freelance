@@ -2288,3 +2288,21 @@ body.crea-mode #portfolio .filter-btn:hover {
 }
 
 .portfolio-band.is-crea .section-desc { color: rgba(255, 255, 255, 0.85); }
+
+/* Réalisations : espacements resserrés entre le titre, le texte et les onglets */
+#portfolio {
+  padding-top: 1.5rem;
+}
+
+#portfolio .section-label {
+  margin-bottom: 1rem;
+}
+
+#portfolio .section-title-3 {
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+#portfolio .section-desc {
+  margin-bottom: 2rem;
+}
