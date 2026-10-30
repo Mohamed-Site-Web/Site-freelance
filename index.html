@@ -37,6 +37,17 @@
   Télécharger mon CV
 </a>
   <a href="#contact" class="nav-contact">Me contacter</a>
+  <div class="lang-picker" id="langPicker">
+    <button type="button" class="lang-current" id="langCurrent" aria-haspopup="true" aria-expanded="false" aria-label="Choisir la langue">
+      <span class="flag" id="langCurrentFlag"><svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span>
+      <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" role="menu" hidden>
+      <button type="button" role="menuitem" data-lang="fr"><span class="flag"><svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span>Français</button>
+      <button type="button" role="menuitem" data-lang="en"><span class="flag"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30M60,0 0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg></span>English</button>
+      <button type="button" role="menuitem" data-lang="es"><span class="flag"><svg viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></span>Español</button>
+    </div>
+  </div>
 </div>
 
 <!------------------------------------------------------------- MODE SOMBRE  ------------------------------------------------------------------------>

@@ -2319,3 +2319,93 @@ body.crea-mode #portfolio .filter-btn:hover {
 }
 
 .portfolio-band.is-crea .portfolio-intro { color: rgba(255, 255, 255, 0.85); }
+
+
+/******************************************************************* LANGUES *******************************************************************/
+.lang-picker {
+  position: relative;
+}
+
+.lang-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 34px;
+  padding: 0 0.55rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.lang-current:hover,
+.lang-current[aria-expanded="true"] { border-color: var(--text); }
+
+.flag {
+  display: inline-block;
+  width: 22px;
+  height: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.flag svg { display: block; width: 100%; height: 100%; }
+
+.lang-chevron {
+  width: 12px;
+  height: 12px;
+  color: var(--text-mid);
+  transition: transform 0.25s;
+}
+
+.lang-current[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
+  padding: 0.35rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  z-index: 300;
+  animation: langIn 0.2s ease;
+}
+
+.lang-menu[hidden] { display: none; }
+
+@keyframes langIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.lang-menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.65rem;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  text-align: left;
+}
+
+.lang-menu button:hover { background: var(--bg-soft2); color: var(--text); }
+.lang-menu button.is-current { display: none; }
+
+@media (max-width: 600px) {
+  /* téléphone : on garde le drapeau et le menu, le lien CV reste dans l'accueil */
+  #navbar .cv-link { display: none; }
+}
